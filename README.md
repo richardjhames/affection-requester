@@ -44,6 +44,36 @@ Pages. `netlify.toml` and `vercel.json` are included and set `X-Robots-Tag:
 noindex` plus a no-referrer policy; `robots.txt` disallows crawlers, and
 `index.html` carries a `noindex, nofollow` meta tag. There is no sitemap.
 
+### GitHub Pages
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) publishes the
+site on every push to `main`, and can also be run by hand from the Actions tab.
+There's no build step — the job copies `index.html`, `css/`, `js/`, `img/` and
+`robots.txt` into `_site/` and hands that to Pages. `spec.md`, this README and
+the Netlify/Vercel configs are deliberately left out of what gets published.
+
+One-time setup: **Settings → Pages → Build and deployment → Source: "GitHub
+Actions"**. The workflow tries to enable this itself on first run, but check it
+if the first deploy fails.
+
+The site then lives at `https://<user>.github.io/<repo>/`. All paths in the
+code are relative, so serving from a subdirectory works as-is.
+
+**Two caveats that matter for a private site:**
+
+- **The URL is guessable.** It's derived from the account and repo name, so
+  this is not the unguessable link the privacy plan assumes. On GitHub Pages,
+  turn on the password gate — set `gate.enabled` and `gate.password` in
+  [`js/config.js`](js/config.js) — or use a custom domain, or a host that
+  gives you a random subdomain.
+- **`robots.txt` doesn't apply.** Crawlers only read it from the domain root
+  (`<user>.github.io/robots.txt`), which this repo doesn't control, and Pages
+  can't set the `X-Robots-Tag` headers that `netlify.toml`/`vercel.json` do.
+  The `noindex, nofollow` meta tag in `index.html` is what keeps the site out
+  of search results there.
+
+### Anywhere else
+
 Access is by unguessable URL only — deploy to a random subdomain and share the
 link. That's security by obscurity, which is the right size for this. If you
 ever want a shared password on top, set `gate.enabled` and `gate.password` in
@@ -62,6 +92,7 @@ ever want a shared password on top, set `gate.enabled` and `gate.password` in
 | `js/gate.js` | Optional shared-password gate (off by default) |
 | `js/app.js` | The UI — rendering, screens, interactions |
 | `img/` | Placeholder cat illustrations and painterly backgrounds (SVG) |
+| `.github/workflows/deploy.yml` | Publishes the site to GitHub Pages on push to `main` |
 
 ## Tweaking it
 
