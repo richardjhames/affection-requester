@@ -9,18 +9,18 @@
 
 export const CONFIG = {
   /**
-   * TODO (Richard): paste your Web3Forms access key here.
+   * Web3Forms access key. THIS is the only place a key goes — nowhere else in
+   * the code needs editing to turn on email.
    *
-   * 1. Go to https://web3forms.com, enter the recipient address (the one in
-   *    spec.md), and they email you an access key.
-   * 2. Paste it below, replacing the placeholder.
+   * To get one: go to https://web3forms.com, enter the recipient address, and
+   * they email you a key. That address is bound to the key at Web3Forms' end,
+   * so the recipient's email never appears in this codebase — there is nothing
+   * else to fill in for delivery.
    *
-   * The recipient address is bound to the key at Web3Forms' end, so it never
-   * appears in this codebase.
-   *
-   * While the placeholder is still here the site runs in "preview mode": the
-   * Send button works and shows the confirmation screen, but no email goes
-   * out and the composed message is logged to the browser console instead.
+   * While this is left as the "TODO-" default the site runs in "preview mode":
+   * Send works and shows the confirmation screen, but no email goes out and the
+   * composed message is logged to the browser console instead. Any real key
+   * (a UUID) switches delivery on.
    */
   web3formsAccessKey: '0dd2d992-f11d-4ae6-85a8-4f284f07e0f3',
 
