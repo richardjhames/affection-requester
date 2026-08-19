@@ -14,12 +14,19 @@ import { CONFIG } from './config.js';
 import { MENUS, WHEN_TAGS, menuById } from './menu-data.js';
 
 const ENDPOINT = 'https://api.web3forms.com/submit';
-const PLACEHOLDER_KEY = 'TODO-WEB3FORMS-ACCESS-KEY';
 
-/** True while Richard hasn't pasted a real access key into config.js. */
+/**
+ * True while no real Web3Forms access key is set — the site stays in preview
+ * mode and no email goes out.
+ *
+ * The key belongs in `js/config.js` and NOWHERE ELSE. The unset default there
+ * starts with "TODO-"; a real key is a UUID from web3forms.com, which never
+ * does. There's deliberately no key-shaped constant to fill in here — pasting
+ * a key into this file would do nothing useful.
+ */
 export function isPreviewMode() {
   const key = (CONFIG.web3formsAccessKey || '').trim();
-  return !key || key === PLACEHOLDER_KEY;
+  return !key || key.startsWith('TODO-');
 }
 
 function whenLabel(when) {
