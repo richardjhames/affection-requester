@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="A cartoon blue cat">
+  <!-- PLACEHOLDER ART: simple cartoon cat, thick wobbly ink outline, flat fill.
+       Swap for Richard's real illustration when supplied. Blue cat = Richard. -->
+  <g fill="#8fc7e8" stroke="#2b2320" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- tail -->
+    <path d="M148 168 C176 174 188 152 174 138 C165 129 150 133 151 145" fill="#8fc7e8"/>
+    <!-- ears -->
+    <path d="M63 60 L57 28 L86 45 Z"/>
+    <path d="M137 60 L143 28 L114 45 Z"/>
+    <!-- body -->
+    <path d="M69 106 C50 121 43 150 47 168 C51 183 70 187 100 187 C130 187 149 183 153 168 C157 150 150 121 131 106 Z"/>
+    <!-- head -->
+    <path d="M100 38 C69 38 54 61 56 84 C58 107 78 120 100 120 C122 120 142 107 144 84 C146 61 131 38 100 38 Z"/>
+  </g>
+  <g fill="none" stroke="#2b2320" stroke-width="5" stroke-linecap="round">
+    <!-- happy closed eyes -->
+    <path d="M78 82 q8 -10 16 0"/>
+    <path d="M106 82 q8 -10 16 0"/>
+    <!-- mouth -->
+    <path d="M100 100 q-7 9 -14 2"/>
+    <path d="M100 100 q7 9 14 2"/>
+  </g>
+  <path d="M93 92 h14 l-7 8 z" fill="#2b2320"/>
+</svg>

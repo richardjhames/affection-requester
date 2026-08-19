@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130" width="200" height="130" role="img" aria-label="A yellow cat peeking over the edge, waiting">
+  <!-- PLACEHOLDER ART: empty-state peeker. Replace with real illustration. -->
+  <g fill="#e8c07d" stroke="#2b2320" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M63 60 L57 28 L86 45 Z"/>
+    <path d="M137 60 L143 28 L114 45 Z"/>
+    <path d="M100 38 C69 38 54 61 56 84 C58 107 78 120 100 120 C122 120 142 107 144 84 C146 61 131 38 100 38 Z"/>
+    <!-- paws hooked over the ledge -->
+    <path d="M60 112 q10 -12 22 -2" fill="none"/>
+    <path d="M118 110 q10 -12 22 -2" fill="none"/>
+  </g>
+  <g fill="none" stroke="#2b2320" stroke-width="5" stroke-linecap="round">
+    <circle cx="86" cy="80" r="3.5" fill="#2b2320" stroke="none"/>
+    <circle cx="114" cy="80" r="3.5" fill="#2b2320" stroke="none"/>
+    <path d="M100 100 q-7 8 -13 2"/>
+    <path d="M100 100 q7 8 13 2"/>
+  </g>
+  <path d="M93 92 h14 l-7 8 z" fill="#2b2320"/>
+  <!-- the ledge it's peeking over -->
+  <path d="M0 116 H200" stroke="#2b2320" stroke-width="7" stroke-linecap="round" fill="none"/>
+</svg>
