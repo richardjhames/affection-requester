@@ -39,45 +39,36 @@ the bottom of the file; nothing else needs to change.
 
 ## Deploying
 
-Drop the folder on any static host — Netlify, Vercel, GitHub Pages, Cloudflare
-Pages. `netlify.toml` and `vercel.json` are included and set `X-Robots-Tag:
-noindex` plus a no-referrer policy; `robots.txt` disallows crawlers, and
-`index.html` carries a `noindex, nofollow` meta tag. There is no sitemap.
+**This site is deployed at `richardham.es/ineedlove`.** It's served from the
+[richardham.es](https://github.com/richardjhames/richardham.es) repo, which
+keeps a copy of these files in its `ineedlove/` folder. After changing anything
+here, refresh that copy from a checkout of this repo:
 
-### GitHub Pages
+```sh
+cd ../richardham.es && npm run build:ineedlove
+```
 
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) publishes the
-site on every push to `main`, and can also be run by hand from the Actions tab.
-There's no build step — the job copies `index.html`, `css/`, `js/`, `img/` and
-`robots.txt` into `_site/` and hands that to Pages. `spec.md`, this README and
-the Netlify/Vercel configs are deliberately left out of what gets published.
+That script also injects a `<base href="/ineedlove/">` into its copy, because
+the site is served without a trailing slash. Nothing in this repo is
+path-specific, so it still works served from anywhere else.
 
-One-time setup: **Settings → Pages → Build and deployment → Source: "GitHub
-Actions"**. The workflow tries to enable this itself on first run, but check it
-if the first deploy fails.
+To host it somewhere else instead, drop the folder on any static host —
+Netlify, Vercel, Cloudflare Pages. `netlify.toml` and `vercel.json` are
+included and set `X-Robots-Tag: noindex` plus a no-referrer policy;
+`robots.txt` disallows crawlers, and `index.html` carries a `noindex, nofollow`
+meta tag. There is no sitemap.
 
-The site then lives at `https://<user>.github.io/<repo>/`. All paths in the
-code are relative, so serving from a subdirectory works as-is.
+### Privacy
 
-**Two caveats that matter for a private site:**
+There's no login: access is by URL. `richardham.es/ineedlove` is guessable by
+anyone who thinks to try it, so the obscurity is thinner than a random
+subdomain would give — the `noindex` meta tag and the `X-Robots-Tag` header
+keep it out of search results, but they don't stop someone typing the path.
 
-- **The URL is guessable.** It's derived from the account and repo name, so
-  this is not the unguessable link the privacy plan assumes. On GitHub Pages,
-  turn on the password gate — set `gate.enabled` and `gate.password` in
-  [`js/config.js`](js/config.js) — or use a custom domain, or a host that
-  gives you a random subdomain.
-- **`robots.txt` doesn't apply.** Crawlers only read it from the domain root
-  (`<user>.github.io/robots.txt`), which this repo doesn't control, and Pages
-  can't set the `X-Robots-Tag` headers that `netlify.toml`/`vercel.json` do.
-  The `noindex, nofollow` meta tag in `index.html` is what keeps the site out
-  of search results there.
-
-### Anywhere else
-
-Access is by unguessable URL only — deploy to a random subdomain and share the
-link. That's security by obscurity, which is the right size for this. If you
-ever want a shared password on top, set `gate.enabled` and `gate.password` in
-`js/config.js`; [`js/gate.js`](js/gate.js) already implements the prompt.
+For a real lock, switch on the shared password: set `gate.enabled` and
+`gate.password` in [`js/config.js`](js/config.js).
+[`js/gate.js`](js/gate.js) already implements the prompt, and remembers the
+answer for the rest of the browser session.
 
 ## What's where
 
@@ -92,7 +83,6 @@ ever want a shared password on top, set `gate.enabled` and `gate.password` in
 | `js/gate.js` | Optional shared-password gate (off by default) |
 | `js/app.js` | The UI — rendering, screens, interactions |
 | `img/` | Placeholder cat illustrations and painterly backgrounds (SVG) |
-| `.github/workflows/deploy.yml` | Publishes the site to GitHub Pages on push to `main` |
 
 ## Tweaking it
 
