@@ -22,7 +22,7 @@ export const CONFIG = {
    * Send button works and shows the confirmation screen, but no email goes
    * out and the composed message is logged to the browser console instead.
    */
-  web3formsAccessKey: 'TODO-WEB3FORMS-ACCESS-KEY',
+  web3formsAccessKey: '0dd2d992-f11d-4ae6-85a8-4f284f07e0f3',
 
   /** Subject line of the email that lands in Richard's inbox. */
   emailSubject: 'A request from the affection menu 💛',
@@ -37,8 +37,8 @@ export const CONFIG = {
    * "me"). Fill them in to have the site greet her by name and sign off with
    * yours.
    */
-  herName: '',
-  hisName: '',
+  herName: 'Vicky',
+  hisName: 'Richard',
 
   /**
    * Optional shared-password gate. Off by default — access is by secret link.
